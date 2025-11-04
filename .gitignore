@@ -197,3 +197,7 @@ dist
 !.env.example
 .dev.vars*
 !.dev.vars.example
+
+
+ascii/target
+ascii/Cargo.lock

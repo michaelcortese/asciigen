@@ -20,9 +20,10 @@
     "wrangler": "4.21.x"
   },
   "scripts": {
+    "build:wasm": "cd ascii && wasm-pack build --target web --out-dir ../wasm/pkg",
     "cf-typegen": "wrangler types",
-    "check": "tsc && wrangler deploy --dry-run",
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev"
+    "check": "npm run build:wasm && tsc && wrangler deploy --dry-run",
+    "deploy": "npm run build:wasm && wrangler deploy",
+    "dev": "npm run build:wasm && wrangler dev"
   }
 }
