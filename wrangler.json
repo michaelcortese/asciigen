@@ -8,8 +8,5 @@
   },
   "observability": {
     "enabled": true
-  },
-  "wasm_modules": {
-    "ascii": "./wasm/ascii.wasm"
   }
 }
