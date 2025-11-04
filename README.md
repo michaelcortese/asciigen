@@ -5,7 +5,7 @@ AI-powered ASCII art generator with chat interface.
 OVERVIEW
 
 Generate ASCII art from text prompts using Cloudflare Workers AI and 
-convert images to ASCII using Rust/WASM. Maintains conversation history.
+convert images to ASCII using Rust/WASM. Maintains conversation history w/ durable objects.
 
 ARCHITECTURE
 
