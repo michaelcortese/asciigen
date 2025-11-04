@@ -1,36 +1,49 @@
-# Text To Image App
+ASCIIGen
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/text-to-image-template)
+AI-powered ASCII art generator with chat interface.
 
-![Text To Image Template Preview](https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/dddfe97e-e689-450b-d5a9-d49801da6a00/public)
+OVERVIEW
 
-<!-- dash-content-start -->
+Generate ASCII art from text prompts using Cloudflare Workers AI and 
+convert images to ASCII using Rust/WASM. Maintains conversation history 
+via Durable Objects.
 
-Generate images based on text prompts using [Workers AI](https://developers.cloudflare.com/workers-ai/). In this example, going to the website will generate an image from the prompt "cyberpunk cat" using the `@cf/stabilityai/stable-diffusion-xl-base-1.0` model. Be patient! Your image may take a few seconds to generate.
+ARCHITECTURE
 
-<!-- dash-content-end -->
+- Frontend: Minimal HTML/CSS/JS interface
+- Backend: Cloudflare Workers (TypeScript)
+- AI: Cloudflare Workers AI for image generation
+- ASCII Conversion: Rust/WASM module
+- Storage: Durable Objects for conversation persistence
 
-## Getting Started
+SETUP
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
-
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/text-to-image-template
-```
-
-A live public deployment of this template is available at [https://text-to-image-template.templates.workers.dev](https://text-to-image-template.templates.workers.dev)
-
-## Setup Steps
-
-1. Install the project dependencies with a package manager of your choice:
-   ```bash
+1. Install dependencies:
    npm install
-   ```
-2. Deploy the project!
-   ```bash
-   npx wrangler deploy
-   ```
-3. Monitor your worker
-   ```bash
-   npx wrangler tail
-   ```
+
+2. Build WASM module:
+   cd ascii
+   wasm-pack build --target web --out-dir ../wasm/pkg
+   cd ..
+
+3. Run development server:
+   npm run dev
+
+4. Deploy:
+   npm run deploy
+
+REQUIREMENTS
+
+- Node.js
+- Rust (for WASM build)
+- Cloudflare account with Workers AI enabled
+
+USAGE
+
+Send text prompts via the chat interface. The AI generates images 
+which are converted to ASCII art. Conversation history is automatically 
+saved and restored per session.
+
+LICENSE
+
+MIT

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCIIGen - AI-Powered ASCII Art Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ASCIIGen</h1>
+            <p class="subtitle">AI-Powered ASCII Art Generator with Chat</p>
+        </header>
+
+        <div class="main-content">
+            <div class="chat-panel">
+                <div class="chat-header">
+                    <h2>Chat with AI</h2>
+                    <button id="clearChat" class="btn-secondary">[Clear]</button>
+                </div>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input 
+                        type="text" 
+                        id="chatInput" 
+                        placeholder="Ask me to generate ASCII art or chat with me..." 
+                        autocomplete="off"
+                    />
+                    <button id="sendButton" class="btn-primary">[Send]</button>
+                </div>
+            </div>
+
+            <div class="ascii-panel">
+                <div class="ascii-header">
+                    <h2>ASCII Art Output</h2>
+                    <div class="ascii-controls">
+                        <label>
+                            Width (cols):
+                            <input type="number" id="colsInput" value="100" min="20" max="200" />
+                        </label>
+                        <button id="copyAscii" class="btn-secondary">[Copy]</button>
+                        <button id="downloadAscii" class="btn-secondary">[Download]</button>
+                    </div>
+                </div>
+                <div id="asciiOutput" class="ascii-output">
+                    <p class="placeholder">ASCII art will appear here...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="loadingIndicator" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
